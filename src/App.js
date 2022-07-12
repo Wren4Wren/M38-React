@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Image from "./components/image";
 import SignOrLog from "./components/signOrLog";
 import "./App.css";
 
@@ -14,20 +15,15 @@ const App = () => {
 
   useEffect(() => {
     fetchImages();
-  }, []); //every time user's value changes, useEffect will run again
+  }, []); //Every time the user's value changes, useEffect will run again
 
   return (
     <div className="App">
       <SignOrLog setter={setUser} />
       <h1>{user}</h1>
       {user &&
-        photos.map((item, index) => {
-          return (
-            <div>
-              <h2>{item.author}</h2>
-              <img src={item.download_url} alt="Images" />
-            </div>
-          );
+        photos.map((item, i) => {
+          return <Image key={i} author={item.author} url={item.download_url} />;
         })}
     </div>
   );

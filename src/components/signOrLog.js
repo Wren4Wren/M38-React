@@ -14,9 +14,15 @@ const SignOrLog = ({ setter }) => {
 
   return (
     <form onSubmit={submitHandler}>
-      <input onChange={(e) => setUsername(e.target.value)} />
-      <input onChange={(e) => setEmail(e.target.value)} />
-      <input onChange={(e) => setPassword(e.target.value)} />
+      <input
+        onChange={(e) => setUsername(e.target.value)}
+        placeholder="Username"
+      />
+      <input onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
+      <input
+        onChange={(e) => setPassword(e.target.value)}
+        placeholder="Password"
+      />
       <button type="submit">Submit</button>
     </form>
   );
