@@ -16,3 +16,9 @@ export const signUp = async (username, email, password, setter) => {
     console.log(error);
   }
 };
+
+export const fetchImages = async () => {
+  const response = await fetch("https://picsum.photos/v2/list");
+  const data = await response.json();
+  setPhotos(data);
+};
