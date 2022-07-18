@@ -1,16 +1,19 @@
 import { useState, useEffect } from "react";
-import { fetchImages } from "../utils";
+import { fetchImages } from "../utils/index";
+import Image from "../components/image";
+import Nav from "../components/navigation";
 
-const Feed = ({ user }) => {
-  const [photos, setPhotos] = useState([]);
+const Feed = ({ user, setter }) => {
+  const [images, setImages] = useState([]);
 
   useEffect(() => {
-    fetchImages(setPhotos);
+    fetchImages(setImages);
   }, []);
   return (
     <div>
+      <Nav user={user} setter={setter} />
       <h1>{user}</h1>
-      {photos.map((item, i) => {
+      {images.map((item, i) => {
         return <Image key={i} author={item.author} url={item.download_url} />;
       })}
     </div>
